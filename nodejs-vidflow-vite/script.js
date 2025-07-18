@@ -4,11 +4,14 @@ import axios from "axios";
 const containerVideos = document.querySelector(".videos__container");
 
 async function buscarEMostarVideos() {
+  const urlVideos = import.meta.env.VITE_URL_VIDEOS;
+  // const urlVideos = import.meta.env.PROD
+  //   ? "https://gist.githubusercontent.com/antonio-evaldo/e8a63621b51c883931eb3fa3a3eca990/raw/12f5c46ee6dd00d03c051adadaf341e06452cea0/videos.txt"
+  //   : "http://localhost:3000/videos";
+  console.log("URL dos videos: ", urlVideos);
   try {
-    const busca = await axios.get(
-      "https://gist.githubusercontent.com/antonio-evaldo/e8a63621b51c883931eb3fa3a3eca990/raw/12f5c46ee6dd00d03c051adadaf341e06452cea0/videos.txt"
-    );
-    const listaVideos = busca.data;
+    const busca = await axios.get(urlVideos);
+    let listaVideos = busca.data;
     listaVideos.forEach((video) => {
       if (video.categoria == "") {
         throw new Error("Erro ao carregar videos: video não possui categoria");
