@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-vidflow-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-preview": "vite build --watch",
+    "preview": "vite preview",
+    "start": "json-server --watch backend/videos.json",
+    "check": "eslint ."
+  },
+  "devDependencies": {
+    "vite": "^7.0.4",
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0",
+    "json-server": "^1.0.0-beta.3"
+  },
+  "dependencies": {
+    "axios": "1.10.0"
+  }
+}
